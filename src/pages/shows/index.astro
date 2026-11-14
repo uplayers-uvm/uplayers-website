@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import ShowCard from '../../components/ShowCard.astro';
+import { getCollection } from 'astro:content';
+const shows = (await getCollection('shows')).sort((a, b) => +b.data.sort_date - +a.data.sort_date);
+---
+<Base title="Shows">
+  <section class="page-head wrap">
+    <p class="eyebrow">Main Stage</p>
+    <h1>Our Shows</h1>
+    <p class="lead">UPlayers puts on two main stage productions each season: one in the fall, one in the spring, with a musical every alternate spring. These shows are performed in Burlington at a local venue.</p>
+  </section>
+  <section class="wrap section"><div class="show-grid">{shows.map((s) => <ShowCard show={s} />)}</div></section>
+</Base>

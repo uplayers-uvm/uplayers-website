@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import data from '../data/officers.json';
+---
+<Base title="Officers">
+  <section class="page-head wrap">
+    <p class="eyebrow">{data.year} Board</p>
+    <h1>Our Officers</h1>
+    {data.note && <p class="lead">{data.note}</p>}
+  </section>
+  <section class="wrap section">
+    <ul class="officer-grid">
+      {data.officers.map((o) => (
+        <li class="officer">
+          <p class="eyebrow">{o.role}</p>
+          <p class="officer-name">{o.name}</p>
+          {o.email && <a href={`mailto:${o.email}`}>{o.email}</a>}
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

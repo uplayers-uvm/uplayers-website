@@ -1,0 +1,149 @@
+# Pages CMS configuration: this file controls the editing screens at https://app.pagescms.org
+media:
+  input: public/images
+  output: /images
+
+content:
+  - name: shows
+    label: Shows
+    type: collection
+    path: src/content/shows
+    filename: "{primary}.md"
+    view:
+      fields: [ title, season, featured ]
+      primary: title
+      default:
+        sort: sort_date
+        order: desc
+    fields:
+      - name: title
+        label: Show title
+        type: string
+        required: true
+      - name: season
+        label: Season
+        description: 'For example "Spring 2026"'
+        type: string
+        required: true
+      - name: sort_date
+        label: Opening date
+        description: Used to put shows in order (newest first). An approximate date is fine.
+        type: date
+        required: true
+      - name: playwright
+        label: Written by
+        type: string
+      - name: dates
+        label: Performance dates and times
+        description: 'For example "April 10th & 11th, 2026 @ 7pm"'
+        type: string
+      - name: venue
+        label: Venue
+        type: string
+      - name: ticket_url
+        label: Ticket link
+        type: string
+      - name: image
+        label: Photo
+        type: image
+      - name: featured
+        label: Feature on the home page as "Now playing"
+        description: Turn this on for the upcoming show only, and turn it off once the run is over.
+        type: boolean
+      - name: body
+        label: Description
+        type: rich-text
+
+  - name: pages
+    label: Pages
+    type: collection
+    path: src/content/pages
+    filename: "{primary}.md"
+    view:
+      fields: [ title, show_in_menu ]
+      primary: title
+    fields:
+      - name: title
+        label: Page title
+        type: string
+        required: true
+      - name: show_in_menu
+        label: Show in the top menu
+        type: boolean
+      - name: menu_order
+        label: Menu position
+        description: Lower numbers appear further left.
+        type: number
+      - name: image
+        label: Banner image (optional)
+        type: image
+      - name: body
+        label: Page content
+        type: rich-text
+
+  - name: officers
+    label: Officers
+    type: file
+    path: src/data/officers.json
+    fields:
+      - name: year
+        label: Board year
+        description: 'For example "2026–2027"'
+        type: string
+      - name: note
+        label: Note at the top of the page
+        type: text
+      - name: officers
+        label: Officers
+        type: object
+        list: true
+        fields:
+          - name: role
+            label: Role
+            type: string
+          - name: name
+            label: Name
+            type: string
+          - name: email
+            label: Email (optional, shown publicly)
+            type: string
+
+  - name: settings
+    label: Site settings
+    type: file
+    path: src/data/site.json
+    fields:
+      - name: name
+        label: Club name
+        type: string
+      - name: tagline
+        label: Tagline
+        type: string
+      - name: hero_heading
+        label: Home page headline
+        type: string
+      - name: intro
+        label: Home page "Who we are" text
+        type: text
+      - name: hero_image
+        label: Home page big photo
+        type: image
+      - name: email
+        label: Club email
+        type: string
+      - name: mailing_list_url
+        label: Mailing list signup link
+        description: Leave blank to make the button open an email to the club address instead.
+        type: string
+      - name: lynx_url
+        label: Lynx link
+        type: string
+      - name: instagram
+        label: Instagram link
+        type: string
+      - name: facebook
+        label: Facebook link
+        type: string
+      - name: youtube
+        label: YouTube link
+        type: string

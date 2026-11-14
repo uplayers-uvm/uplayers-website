@@ -1,0 +1,14 @@
+---
+const { show } = Astro.props;
+const d = show.data;
+---
+<a class="show-card" href={`/shows/${show.id}`}>
+  <div class="show-card-img">
+    {d.image ? <img src={d.image} alt={`${d.title} cast photo`} loading="lazy" /> : <div class="placeholder"><img src="/images/logo.png" alt="" /></div>}
+  </div>
+  <div class="show-card-body">
+    <p class="eyebrow">{d.season}</p>
+    <h3>{d.title}</h3>
+    {d.playwright && <p class="muted">by {d.playwright}</p>}
+  </div>
+</a>

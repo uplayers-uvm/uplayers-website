@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  return (await getCollection('pages')).map((page) => ({ params: { id: page.id }, props: { page } }));
+}
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+<Base title={page.data.title}>
+  <section class="page-head wrap narrow"><h1>{page.data.title}</h1></section>
+  {page.data.image && <div class="wrap narrow"><img class="page-image" src={page.data.image} alt="" /></div>}
+  <article class="wrap narrow section prose"><Content /></article>
+</Base>

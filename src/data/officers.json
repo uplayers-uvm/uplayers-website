@@ -1,0 +1,14 @@
+{
+  "year": "2023–2024",
+  "note": "Want to reach a specific officer? Email the club at uplayers@uvm.edu and we'll pass it along.",
+  "officers": [
+    { "role": "President", "name": "Daniel Kelley", "email": "" },
+    { "role": "Vice President", "name": "Adonis Anderson", "email": "" },
+    { "role": "Technical Director", "name": "Collin Rinaldi", "email": "" },
+    { "role": "Technical Director", "name": "Ryan Gurrisi", "email": "" },
+    { "role": "Secretary", "name": "Emma Brazinski", "email": "" },
+    { "role": "Secretary", "name": "Spencer Cook", "email": "" },
+    { "role": "Public Relations Manager", "name": "Emma Luikart", "email": "" },
+    { "role": "Production & Management Consultant", "name": "Aaron Solomon", "email": "" }
+  ]
+}
