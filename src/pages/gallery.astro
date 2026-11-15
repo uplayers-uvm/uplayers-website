@@ -1,8 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import Gallery from '../components/Gallery.astro';
-import { getCollection } from 'astro:content';
-const shows = (await getCollection('shows'))
+import { published } from '../lib/content';
+const shows = (await published('shows'))
   .filter((s) => s.data.gallery && s.data.gallery.length)
   .sort((a, b) => +b.data.sort_date - +a.data.sort_date);
 ---

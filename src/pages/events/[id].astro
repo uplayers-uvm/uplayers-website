@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import { render } from 'astro:content';
+import { published, fmtWhen } from '../../lib/content';
+export async function getStaticPaths() {
+  return (await published('events')).map((event) => ({ params: { id: event.id }, props: { event } }));
+}
+const { event } = Astro.props;
+const d = event.data;
+const { Content } = await render(event);
+const mapUrl = d.location ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.location + ', Burlington, VT')}` : null;
+---
+<Base title={d.title} description={d.summary ?? undefined}>
+  {d.image && <div class="show-hero"><img src={d.image} alt="" /></div>}
+  <article class="wrap narrow section">
+    {d.type && <p class="eyebrow">{d.type}</p>}
+    <h1>{d.title}</h1>
+    <div class="details">
+      <p><strong>When:</strong> {fmtWhen(d.start, d.end)}</p>
+      {d.location && <p><strong>Where:</strong> {d.location} {mapUrl && <a class="link" href={mapUrl}>(map)</a>}</p>}
+      <div class="actions">
+        {d.link_url && <a class="btn primary" href={d.link_url}>{d.link_label || 'More info'}</a>}
+        <a class="btn outline" href={`/events/${event.id}.ics`}>Add to my calendar</a>
+      </div>
+    </div>
+    {d.summary && <p class="lead">{d.summary}</p>}
+    <div class="prose"><Content /></div>
+    <p><a class="link" href="/events">← All events</a></p>
+  </article>
+</Base>

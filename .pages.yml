@@ -1,16 +1,79 @@
 # Pages CMS configuration: this file controls the editing screens at https://app.pagescms.org
+# Every save publishes to the live site automatically in 1-2 minutes.
 media:
   input: public/images
   output: /images
 
 content:
+  # ------------------------------------------------------------------ EVENTS
+  - name: events
+    label: Events
+    type: collection
+    path: src/content/events
+    filename: "{primary}.md"
+    view:
+      fields: [ title, start, type, draft ]
+      primary: title
+      default:
+        sort: start
+        order: desc
+    fields:
+      - name: title
+        label: Event name
+        type: string
+        required: true
+      - name: type
+        label: Type of event
+        type: select
+        options:
+          values: [ Auditions, Meeting, Workshop, Social, Performance, Fundraiser, Other ]
+      - name: start
+        label: Starts
+        description: Pick the date and start time. Events disappear from "Upcoming" automatically once they're over.
+        type: date
+        options:
+          time: true
+        required: true
+      - name: end
+        label: Ends (optional)
+        type: date
+        options:
+          time: true
+      - name: location
+        label: Location
+        description: 'For example "Davis Center, Livak Ballroom"'
+        type: string
+      - name: summary
+        label: Short summary
+        description: One or two sentences shown on the event list and home page.
+        type: text
+      - name: link_url
+        label: Button link (optional)
+        description: A sign-up form, ticket page, Instagram post, etc.
+        type: string
+      - name: link_label
+        label: Button text
+        description: 'For example "Sign up for an audition slot"'
+        type: string
+      - name: image
+        label: Image (optional)
+        type: image
+      - name: draft
+        label: Draft (hide from the website)
+        description: Turn on to work on this privately. Turn off to publish.
+        type: boolean
+      - name: body
+        label: Full details
+        type: rich-text
+
+  # ------------------------------------------------------------------ SHOWS
   - name: shows
     label: Shows
     type: collection
     path: src/content/shows
     filename: "{primary}.md"
     view:
-      fields: [ title, season, featured ]
+      fields: [ title, season, featured, draft ]
       primary: title
       default:
         sort: sort_date
@@ -22,7 +85,7 @@ content:
         required: true
       - name: season
         label: Season
-        description: 'For example "Spring 2026"'
+        description: 'For example "Spring 2027"'
         type: string
         required: true
       - name: sort_date
@@ -30,6 +93,10 @@ content:
         description: Used to put shows in order (newest first). An approximate date is fine.
         type: date
         required: true
+      - name: featured
+        label: Feature on the home page as "Now playing"
+        description: Turn this on for the upcoming show only, and turn it off once the run is over.
+        type: boolean
       - name: playwright
         label: Written by
         type: string
@@ -38,57 +105,91 @@ content:
         type: string
       - name: dates
         label: Performance dates and times
-        description: 'For example "April 10th & 11th, 2026 @ 7pm"'
+        description: 'For example "April 10th & 11th, 2027 @ 7pm"'
         type: string
       - name: venue
         label: Venue
         type: string
       - name: ticket_url
         label: Ticket link
+        description: A "Buy tickets" button appears automatically while the show is featured.
         type: string
       - name: image
-        label: Photo
+        label: Main photo or poster
         type: image
-      - name: gallery
-        label: Photo gallery
-        description: Add as many photos as you like. Drag to reorder.
-        type: image
-        list: true
-      - name: featured
-        label: Feature on the home page as "Now playing"
-        description: Turn this on for the upcoming show only, and turn it off once the run is over.
-        type: boolean
       - name: body
         label: Description
         type: rich-text
+      - name: cast
+        label: Cast
+        type: object
+        list: true
+        fields:
+          - name: role
+            label: Character
+            type: string
+          - name: name
+            label: Actor
+            type: string
+      - name: crew
+        label: Crew
+        type: object
+        list: true
+        fields:
+          - name: role
+            label: Job (e.g. Stage Manager)
+            type: string
+          - name: name
+            label: Name
+            type: string
+      - name: video_url
+        label: YouTube video link (optional)
+        description: Paste any YouTube link (trailer, recording, etc.) and it will be embedded on the show page.
+        type: string
+      - name: gallery
+        label: Photo gallery
+        description: Add as many photos as you like. Drag to reorder. Shows with photos appear on the Gallery page.
+        type: image
+        list: true
+      - name: draft
+        label: Draft (hide from the website)
+        type: boolean
 
-  - name: pages
-    label: Pages
+  # ------------------------------------------------------------------ NEWS
+  - name: news
+    label: News
     type: collection
-    path: src/content/pages
+    path: src/content/news
     filename: "{primary}.md"
     view:
-      fields: [ title, show_in_menu ]
+      fields: [ title, date, draft ]
       primary: title
+      default:
+        sort: date
+        order: desc
     fields:
       - name: title
-        label: Page title
+        label: Headline
         type: string
         required: true
-      - name: show_in_menu
-        label: Show in the top menu
-        type: boolean
-      - name: menu_order
-        label: Menu position
-        description: Lower numbers appear further left.
-        type: number
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: summary
+        label: Short summary
+        type: text
       - name: image
-        label: Banner image (optional)
+        label: Image (optional)
         type: image
+      - name: draft
+        label: Draft (hide from the website)
+        type: boolean
       - name: body
-        label: Page content
+        label: Post
         type: rich-text
 
+  # ------------------------------------------------------------------ OFFICERS
   - name: officers
     label: Officers
     type: file
@@ -103,6 +204,7 @@ content:
         type: text
       - name: officers
         label: Officers
+        description: Drag to reorder. Click "Add an entry" for a new officer.
         type: object
         list: true
         fields:
@@ -125,32 +227,81 @@ content:
             label: Headshot (optional, square works best)
             type: image
 
+  # ------------------------------------------------------------------ PAGES
+  - name: pages
+    label: Pages
+    type: collection
+    path: src/content/pages
+    filename: "{primary}.md"
+    view:
+      fields: [ title, show_in_menu, draft ]
+      primary: title
+    fields:
+      - name: title
+        label: Page title
+        description: The page's web address comes from this title, e.g. "Costume Shop" → /costume-shop
+        type: string
+        required: true
+      - name: show_in_menu
+        label: Show in the top menu
+        type: boolean
+      - name: menu_order
+        label: Menu position
+        description: Lower numbers appear further left (after Shows, Events, Gallery and Officers).
+        type: number
+      - name: image
+        label: Banner image (optional)
+        type: image
+      - name: draft
+        label: Draft (hide from the website)
+        type: boolean
+      - name: body
+        label: Page content
+        type: rich-text
+
+  # ------------------------------------------------------------------ SETTINGS
   - name: settings
     label: Site settings
     type: file
     path: src/data/site.json
     fields:
+      - name: announcement
+        label: Announcement bar (gold strip at the very top of every page)
+        type: object
+        fields:
+          - name: enabled
+            label: Show the announcement bar
+            type: boolean
+          - name: text
+            label: Message
+            description: 'Keep it short, e.g. "Almost, Maine tickets are on sale!"'
+            type: string
+          - name: link
+            label: Link (optional)
+            description: Where clicking the bar goes, e.g. /events or a ticket link.
+            type: string
+      - name: hero_heading
+        label: Home page headline
+        type: string
+      - name: hero_image
+        label: Home page big photo
+        description: Tall (portrait) photos look best.
+        type: image
+      - name: intro
+        label: Home page "Who we are" text
+        type: text
       - name: name
         label: Club name
         type: string
       - name: tagline
         label: Tagline
         type: string
-      - name: hero_heading
-        label: Home page headline
-        type: string
-      - name: intro
-        label: Home page "Who we are" text
-        type: text
-      - name: hero_image
-        label: Home page big photo
-        type: image
       - name: email
         label: Club email
         type: string
       - name: mailing_list_url
         label: Mailing list signup link
-        description: Leave blank to make the button open an email to the club address instead.
+        description: e.g. a Google Form. Leave blank to make the button open an email to the club address instead.
         type: string
       - name: lynx_url
         label: Lynx link

@@ -2,9 +2,12 @@
 import Base from '../layouts/Base.astro';
 import ShowCard from '../components/ShowCard.astro';
 import Gallery from '../components/Gallery.astro';
-import { getCollection } from 'astro:content';
+import EventCard from '../components/EventCard.astro';
+import { showsByDate, upcomingEvents, published, fmtDate } from '../lib/content';
 import site from '../data/site.json';
-const shows = (await getCollection('shows')).sort((a, b) => +b.data.sort_date - +a.data.sort_date);
+const shows = await showsByDate();
+const { upcoming } = await upcomingEvents();
+const news = (await published('news')).sort((a, b) => b.data.date.localeCompare(a.data.date)).slice(0, 3);
 const featured = shows.find((s) => s.data.featured);
 const recent = shows.filter((s) => s !== featured).slice(0, 3);
 const withPhotos = shows.find((s) => s.data.gallery && s.data.gallery.length);
@@ -51,6 +54,16 @@ const join = site.mailing_list_url || `mailto:${site.email}?subject=Add%20me%20t
     </section>
   )}
 
+  {upcoming.length > 0 && (
+    <section class="wrap section" data-upcoming-section>
+      <div class="section-head">
+        <h2>Upcoming events</h2>
+        <a href="/events" class="link">All events →</a>
+      </div>
+      <div class="event-list" data-upcoming-list>{upcoming.slice(0, 3).map((e) => <EventCard event={e} />)}</div>
+    </section>
+  )}
+
   <section class="wrap section intro">
     <h2>Who we are</h2>
     <p class="lead">{site.intro}</p>
@@ -63,6 +76,18 @@ const join = site.mailing_list_url || `mailto:${site.email}?subject=Add%20me%20t
     </div>
     <div class="show-grid">{recent.map((s) => <ShowCard show={s} />)}</div>
   </section>
+
+  {news.length > 0 && (
+    <section class="wrap section">
+      <div class="section-head">
+        <h2>Latest news</h2>
+        <a href="/news" class="link">All news →</a>
+      </div>
+      <ul class="past-list">
+        {news.map((p) => <li><a href={`/news/${p.id}`}>{p.data.title}</a> <span class="muted">· {fmtDate(p.data.date, false)}</span></li>)}
+      </ul>
+    </section>
+  )}
 
   {withPhotos && (
     <section class="wrap section">

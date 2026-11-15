@@ -1,0 +1,19 @@
+---
+import Base from '../../layouts/Base.astro';
+import { render } from 'astro:content';
+import { published, fmtDate } from '../../lib/content';
+export async function getStaticPaths() {
+  return (await published('news')).map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<Base title={post.data.title} description={post.data.summary ?? undefined}>
+  <article class="wrap narrow section">
+    <p class="eyebrow">{fmtDate(post.data.date)}</p>
+    <h1>{post.data.title}</h1>
+    {post.data.image && <img class="page-image" src={post.data.image} alt="" />}
+    <div class="prose"><Content /></div>
+    <p><a class="link" href="/news">← All news</a></p>
+  </article>
+</Base>

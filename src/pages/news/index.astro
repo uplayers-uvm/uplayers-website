@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import { published, fmtDate } from '../../lib/content';
+const posts = (await published('news')).sort((a, b) => b.data.date.localeCompare(a.data.date));
+---
+<Base title="News">
+  <section class="page-head wrap">
+    <p class="eyebrow">Announcements</p>
+    <h1>News</h1>
+  </section>
+  <section class="wrap section">
+    {posts.length === 0 && <p class="muted">No news yet. Check back soon!</p>}
+    <div class="news-list">
+      {posts.map((p) => (
+        <a class="news-card" href={`/news/${p.id}`}>
+          {p.data.image && <img src={p.data.image} alt="" loading="lazy" />}
+          <div>
+            <p class="eyebrow">{fmtDate(p.data.date, false)}</p>
+            <h3>{p.data.title}</h3>
+            {p.data.summary && <p class="muted">{p.data.summary}</p>}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

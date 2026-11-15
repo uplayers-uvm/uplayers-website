@@ -9,5 +9,10 @@
   "lynx_url": "https://thelynx.campuslabs.com/engage/organizations?categories=3435",
   "instagram": "https://www.instagram.com/university_players/",
   "facebook": "https://www.facebook.com/UniversityPlayersUVM/",
-  "youtube": "https://www.youtube.com/channel/UCNWrX-ufSTETQ0AGa1f_aoA"
+  "youtube": "https://www.youtube.com/channel/UCNWrX-ufSTETQ0AGa1f_aoA",
+  "announcement": {
+    "enabled": false,
+    "text": "Auditions for our spring show are open! Sign up now",
+    "link": "/events"
+  }
 }

@@ -1,0 +1,32 @@
+---
+import Base from '../../layouts/Base.astro';
+import EventCard from '../../components/EventCard.astro';
+import { upcomingEvents, fmtDate } from '../../lib/content';
+const { upcoming, past } = await upcomingEvents();
+---
+<Base title="Events">
+  <section class="page-head wrap">
+    <p class="eyebrow">What's on</p>
+    <h1>Upcoming Events</h1>
+    <p class="lead">Auditions, meetings, workshops, socials and performances. Everyone is welcome.</p>
+    <p><a class="link" href="/events.ics">📅 Add all UPlayers events to your calendar</a></p>
+  </section>
+  <section class="wrap section">
+    {upcoming.length
+      ? <div class="event-list" data-upcoming-list>{upcoming.map((e) => <EventCard event={e} />)}</div>
+      : null}
+    <p class="muted empty-note" data-empty-note hidden={upcoming.length > 0}>
+      Nothing scheduled right now. Follow us on Instagram or join the mailing list to hear about what's next!
+    </p>
+  </section>
+  {past.length > 0 && (
+    <section class="wrap section past-events">
+      <h2>Past events</h2>
+      <ul class="past-list">
+        {past.slice(0, 20).map((e) => (
+          <li><a href={`/events/${e.id}`}>{e.data.title}</a> <span class="muted">· {fmtDate(e.data.start, false)}</span></li>
+        ))}
+      </ul>
+    </section>
+  )}
+</Base>

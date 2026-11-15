@@ -1,14 +1,23 @@
 ---
 import '../styles/global.css';
-import { getCollection } from 'astro:content';
+import { published } from '../lib/content';
 import site from '../data/site.json';
 interface Props { title?: string; description?: string }
 const { title, description = site.intro.slice(0, 155) } = Astro.props;
 const pageTitle = title ? `${title} · ${site.name}` : `${site.name} · ${site.tagline}`;
-const extra = (await getCollection('pages', (p) => p.data.show_in_menu))
+const extra = (await published('pages')).filter((p) => p.data.show_in_menu)
   .sort((a, b) => a.data.menu_order - b.data.menu_order)
   .map((p) => ({ href: `/${p.id}`, label: p.data.title }));
-const menu = [{ href: '/shows', label: 'Shows' }, { href: '/gallery', label: 'Gallery' }, { href: '/officers', label: 'Officers' }, ...extra];
+const hasNews = (await published('news')).length > 0;
+const menu = [
+  { href: '/shows', label: 'Shows' },
+  { href: '/events', label: 'Events' },
+  ...(hasNews ? [{ href: '/news', label: 'News' }] : []),
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/officers', label: 'Officers' },
+  ...extra,
+];
+const banner = (site as any).announcement;
 const path = Astro.url.pathname.replace(/\/$/, '');
 ---
 <!doctype html>
@@ -24,6 +33,13 @@ const path = Astro.url.pathname.replace(/\/$/, '');
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
+  {banner?.enabled && banner?.text && (
+    <div class="announcement">
+      <div class="wrap">
+        {banner.link ? <a href={banner.link}>{banner.text} →</a> : <span>{banner.text}</span>}
+      </div>
+    </div>
+  )}
   <header class="site-header">
     <div class="wrap nav">
       <a href="/" class="brand">
@@ -52,5 +68,16 @@ const path = Astro.url.pathname.replace(/\/$/, '');
       </div>
     </div>
   </footer>
+  <script>
+    // Hide events that have already ended (the site is only rebuilt when someone edits it).
+    const now = new Date().toLocaleString('sv-SE', { timeZone: 'America/New_York' }).slice(0, 16).replace(' ', 'T');
+    document.querySelectorAll<HTMLElement>('[data-ends]').forEach((el) => { if (el.dataset.ends! < now) el.remove(); });
+    document.querySelectorAll<HTMLElement>('[data-upcoming-list]').forEach((list) => {
+      if (!list.children.length) {
+        list.closest('[data-upcoming-section]')?.remove();
+        document.querySelectorAll<HTMLElement>('[data-empty-note]').forEach((n) => (n.hidden = false));
+      }
+    });
+  </script>
 </body>
 </html>

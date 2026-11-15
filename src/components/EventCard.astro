@@ -1,0 +1,15 @@
+---
+import { fmtWhen, badge, endKey } from '../lib/content';
+const { event } = Astro.props;
+const d = event.data;
+const b = badge(d.start);
+---
+<a class="event-card" href={`/events/${event.id}`} data-ends={endKey(d.start, d.end)}>
+  <div class="event-date" aria-hidden="true"><span>{b.month}</span><strong>{b.day}</strong></div>
+  <div class="event-body">
+    {d.type && <p class="eyebrow">{d.type}</p>}
+    <h3>{d.title}</h3>
+    <p class="muted event-meta">{fmtWhen(d.start, d.end)}{d.location && ` · ${d.location}`}</p>
+    {d.summary && <p class="event-summary">{d.summary}</p>}
+  </div>
+</a>

@@ -1,8 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import ShowCard from '../../components/ShowCard.astro';
-import { getCollection } from 'astro:content';
-const shows = (await getCollection('shows')).sort((a, b) => +b.data.sort_date - +a.data.sort_date);
+import { showsByDate } from '../../lib/content';
+const shows = await showsByDate();
 ---
 <Base title="Shows">
   <section class="page-head wrap">
