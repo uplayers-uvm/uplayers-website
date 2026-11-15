@@ -207,3 +207,15 @@ h3 { font-size: 1.25rem; }
 .event-list.past .event-date span { background: var(--muted); }
 .poster { max-width: 460px; width: 100%; border-radius: var(--radius); margin: 24px 0; box-shadow: 0 12px 30px rgba(20,18,16,.15); }
 @media (max-width: 560px) { .event-thumb { display: none; } }
+
+.officer-photo { object-position: center 20%; }
+.past-board-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.past-board { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+.past-board dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 0; }
+.past-board dt { color: var(--muted); }
+.past-board dd { margin: 0; font-weight: 600; }
+.event-list.past { gap: 10px; }
+.event-list.past .event-card { padding: 12px 16px; }
+.event-list.past .event-summary, .event-list.past .event-thumb { display: none; }
+.event-list.past .event-body h3 { font-size: 1.05rem; }
+.show-card-img > img { object-position: center top; }

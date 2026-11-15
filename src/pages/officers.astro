@@ -29,4 +29,17 @@ const initials = (name: string) => { const w = name.replace(/\(.*?\)/g, ' ').spl
       ))}
     </ul>
   </section>
+  {(data as any).past_boards?.length > 0 && (
+    <section class="wrap section past-boards">
+      <h2>Past boards</h2>
+      <div class="past-board-grid">
+        {(data as any).past_boards.map((b: any) => (
+          <div class="past-board">
+            <h3>{b.year}</h3>
+            <dl>{b.members.map((m: any) => <><dt>{m.role}</dt><dd>{m.name}</dd></>)}</dl>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
 </Base>

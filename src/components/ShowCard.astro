@@ -9,6 +9,6 @@ const d = show.data;
   <div class="show-card-body">
     <p class="eyebrow">{d.season}</p>
     <h3>{d.title}</h3>
-    {d.playwright && <p class="muted">by {d.playwright}</p>}
+    {d.playwright && <p class="muted">by {d.playwright.split(' (')[0].replace(/^Book by /, '').split(';')[0]}</p>}
   </div>
 </a>

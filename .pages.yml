@@ -235,6 +235,26 @@ content:
           - name: photo
             label: Headshot (optional, square works best)
             type: image
+      - name: past_boards
+        label: Past boards (shown at the bottom of the Officers page)
+        description: When a new board takes over, add the outgoing board here.
+        type: object
+        list: true
+        fields:
+          - name: year
+            label: Year
+            type: string
+          - name: members
+            label: Members
+            type: object
+            list: true
+            fields:
+              - name: role
+                label: Role
+                type: string
+              - name: name
+                label: Name
+                type: string
 
   # ------------------------------------------------------------------ PAGES
   - name: pages

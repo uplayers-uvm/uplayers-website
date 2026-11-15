@@ -1,12 +1,11 @@
 ---
-title: The Curious Savage
-season: Fall 2023
-sort_date: 2023-11-30
-playwright: John Patrick
-dates: "Nov 30th & December 1st, 2023 @ 7pm"
-venue: Main Street Landing, Black Box Theater
-ticket_url: https://na.eventscloud.com/ereg/index.php?eventid=777992&
-image: ""
+title: "The Curious Savage"
+season: "Fall 2023"
+sort_date: "2023-11-30"
+playwright: "John Patrick"
+dates: "November 30th & December 1st @ 7pm, 2023"
+venue: "Black Box Theater, Main Street Landing"
+image: "/images/shows/curious-savage.jpg"
 featured: false
 ---
 Written in the 1950s, this comedy is set in The Cloisters, a sanatorium full of quirky and kind patients. They welcome someone new named Mrs. Savage who has been brought in by her adult children after her behavior becomes more eccentric following her husband's death.

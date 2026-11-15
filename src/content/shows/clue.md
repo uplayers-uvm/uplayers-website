@@ -1,10 +1,12 @@
 ---
-title: Clue
-season: Spring 2025
-sort_date: 2025-04-15
-playwright: Sandy Rustin
-directors: ""
-image: /images/fav-uplayers-photo.jpg
+title: "Clue: On Stage"
+season: "Spring 2025"
+sort_date: "2025-04-17"
+playwright: "Sandy Rustin (based on the screenplay by Jonathan Lynn; additional material by Hunter Foster & Eric Price)"
+directors: "Ryan Gurrisi"
+dates: "April 17th & 18th @ 7:30pm; April 19th @ 1:30pm, 2025"
+venue: "Main Street Landing Theatre, Lake and College Building, 60 Lake St, Burlington"
+image: "/images/fav-uplayers-photo.jpg"
 featured: false
 gallery:
   - /images/gallery/clue-2025/img_5768.jpg
@@ -224,4 +226,31 @@ gallery:
   - /images/gallery/clue-2025/img_9623.jpg
   - /images/gallery/clue-2025/img_9625.jpg
   - /images/gallery/clue-2025/img_9627.jpg
+cast:
+  - role: "Wadsworth"
+    name: "Gigi Royko-Maurer"
+  - role: "Yvette"
+    name: "Marshall Moffatt"
+  - role: "Miss Scarlet"
+    name: "Jess Crane"
+  - role: "Mrs. White"
+    name: "Iris Pelli-Walbert"
+  - role: "Mrs. Peacock"
+    name: "Katie Ovitt"
+  - role: "Colonel Mustard"
+    name: "Spencer Cook"
+  - role: "Professor Plum"
+    name: "Levon Applin"
+  - role: "Mr. Green"
+    name: "Finn McCann"
+  - role: "Ensemble"
+    name: "Gracie Cunningham"
+  - role: "Ensemble"
+    name: "Tallulah Lintern"
+crew:
+  - role: "Director"
+    name: "Ryan Gurrisi"
+  - role: "Assistant Directors"
+    name: "Logan Barker & Chloë Post"
 ---
+Based on the Paramount Pictures film and the Hasbro board game, *Clue: On Stage* is a comedy-whodunit: six guests, one butler, a mansion full of secret passages, and a body count that keeps climbing. UPlayers' spring 2025 main stage production.
