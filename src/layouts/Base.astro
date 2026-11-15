@@ -8,7 +8,7 @@ const pageTitle = title ? `${title} · ${site.name}` : `${site.name} · ${site.t
 const extra = (await getCollection('pages', (p) => p.data.show_in_menu))
   .sort((a, b) => a.data.menu_order - b.data.menu_order)
   .map((p) => ({ href: `/${p.id}`, label: p.data.title }));
-const menu = [{ href: '/shows', label: 'Shows' }, { href: '/officers', label: 'Officers' }, ...extra];
+const menu = [{ href: '/shows', label: 'Shows' }, { href: '/gallery', label: 'Gallery' }, { href: '/officers', label: 'Officers' }, ...extra];
 const path = Astro.url.pathname.replace(/\/$/, '');
 ---
 <!doctype html>
@@ -18,7 +18,7 @@ const path = Astro.url.pathname.replace(/\/$/, '');
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{pageTitle}</title>
   <meta name="description" content={description} />
-  <link rel="icon" href="/images/logo.png" />
+  <link rel="icon" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />

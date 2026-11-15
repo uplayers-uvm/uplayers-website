@@ -1,32 +1,45 @@
 ---
 import Base from '../layouts/Base.astro';
 import ShowCard from '../components/ShowCard.astro';
+import Gallery from '../components/Gallery.astro';
 import { getCollection } from 'astro:content';
 import site from '../data/site.json';
 const shows = (await getCollection('shows')).sort((a, b) => +b.data.sort_date - +a.data.sort_date);
 const featured = shows.find((s) => s.data.featured);
 const recent = shows.filter((s) => s !== featured).slice(0, 3);
+const withPhotos = shows.find((s) => s.data.gallery && s.data.gallery.length);
 const join = site.mailing_list_url || `mailto:${site.email}?subject=Add%20me%20to%20the%20UPlayers%20mailing%20list`;
 ---
 <Base>
-  <section class="hero" style={`--hero: url('${site.hero_image}')`}>
-    <div class="wrap hero-inner">
-      <p class="eyebrow light">{site.tagline}</p>
-      <h1>{site.hero_heading}</h1>
-      <div class="actions">
-        <a class="btn primary" href="/join">Get involved</a>
-        <a class="btn ghost" href={join}>Join our mailing list</a>
+  <section class="hero">
+    <div class="wrap hero-split">
+      <div class="hero-text">
+        <p class="eyebrow light">{site.tagline}</p>
+        <h1>{site.hero_heading}</h1>
+        <p class="hero-sub">Two main stage shows a season, and a place for everyone on (or behind) the stage.</p>
+        <div class="actions">
+          <a class="btn primary" href="/join">Get involved</a>
+          <a class="btn ghost" href={join}>Join our mailing list</a>
+        </div>
       </div>
+      {site.hero_image && (
+        <figure class="hero-photo">
+          <img src={site.hero_image} alt="University Players cast members peeking through a red stage curtain" />
+        </figure>
+      )}
     </div>
   </section>
 
   {featured && (
     <section class="wrap section">
       <div class="now-playing">
-        {featured.data.image && <img src={featured.data.image} alt="" />}
+        {featured.data.image
+          ? <img src={featured.data.image} alt="" />
+          : <div class="now-playing-placeholder"><img src="/images/logo.png" alt="" /></div>}
         <div>
           <p class="eyebrow">Now playing · {featured.data.season}</p>
           <h2>{featured.data.title}</h2>
+          {featured.data.playwright && <p class="muted byline">by {featured.data.playwright}</p>}
           {featured.data.dates && <p><strong>{featured.data.dates}</strong></p>}
           {featured.data.venue && <p class="muted">{featured.data.venue}</p>}
           <div class="actions">
@@ -50,6 +63,16 @@ const join = site.mailing_list_url || `mailto:${site.email}?subject=Add%20me%20t
     </div>
     <div class="show-grid">{recent.map((s) => <ShowCard show={s} />)}</div>
   </section>
+
+  {withPhotos && (
+    <section class="wrap section">
+      <div class="section-head">
+        <h2>From the gallery</h2>
+        <a href="/gallery" class="link">All photos →</a>
+      </div>
+      <Gallery photos={withPhotos.data.gallery!.slice(0, 8)} title={withPhotos.data.title} />
+    </section>
+  )}
 
   <section class="band">
     <div class="wrap band-inner">

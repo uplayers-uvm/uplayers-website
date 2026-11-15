@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import Gallery from '../components/Gallery.astro';
+import { getCollection } from 'astro:content';
+const shows = (await getCollection('shows'))
+  .filter((s) => s.data.gallery && s.data.gallery.length)
+  .sort((a, b) => +b.data.sort_date - +a.data.sort_date);
+---
+<Base title="Gallery">
+  <section class="page-head wrap">
+    <p class="eyebrow">Photos</p>
+    <h1>Gallery</h1>
+    <p class="lead">Moments from our productions, on stage and behind the curtain. Click any photo to enlarge it.</p>
+  </section>
+  {shows.length === 0 && <section class="wrap section"><p class="muted">Photos coming soon!</p></section>}
+  {shows.map((s) => (
+    <section class="wrap section gallery-section">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">{s.data.season}</p>
+          <h2>{s.data.title}</h2>
+        </div>
+        <a class="link" href={`/shows/${s.id}`}>About the show →</a>
+      </div>
+      <Gallery photos={s.data.gallery!} title={s.data.title} limit={24} moreHref={`/shows/${s.id}#photos`} />
+    </section>
+  ))}
+</Base>

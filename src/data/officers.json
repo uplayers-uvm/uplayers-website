@@ -1,14 +1,70 @@
 {
-  "year": "2023–2024",
+  "year": "2026–2027",
   "note": "Want to reach a specific officer? Email the club at uplayers@uvm.edu and we'll pass it along.",
   "officers": [
-    { "role": "President", "name": "Daniel Kelley", "email": "" },
-    { "role": "Vice President", "name": "Adonis Anderson", "email": "" },
-    { "role": "Technical Director", "name": "Collin Rinaldi", "email": "" },
-    { "role": "Technical Director", "name": "Ryan Gurrisi", "email": "" },
-    { "role": "Secretary", "name": "Emma Brazinski", "email": "" },
-    { "role": "Secretary", "name": "Spencer Cook", "email": "" },
-    { "role": "Public Relations Manager", "name": "Emma Luikart", "email": "" },
-    { "role": "Production & Management Consultant", "name": "Aaron Solomon", "email": "" }
+    {
+      "role": "President",
+      "name": "Iris Pelli-Walbert",
+      "major": "Major TBA",
+      "email": "",
+      "bio": "Bio coming soon!",
+      "photo": ""
+    },
+    {
+      "role": "Vice President",
+      "name": "Logan Barker",
+      "major": "Major TBA",
+      "email": "",
+      "bio": "Bio coming soon!",
+      "photo": ""
+    },
+    {
+      "role": "Treasurer",
+      "name": "Alex Upton",
+      "major": "Major TBA",
+      "email": "",
+      "bio": "Bio coming soon!",
+      "photo": ""
+    },
+    {
+      "role": "Technical Director",
+      "name": "Tallulah Lintern",
+      "major": "Major TBA",
+      "email": "",
+      "bio": "Bio coming soon!",
+      "photo": ""
+    },
+    {
+      "role": "PR Manager",
+      "name": "Jay Stephan",
+      "major": "Major TBA",
+      "email": "",
+      "bio": "Bio coming soon!",
+      "photo": ""
+    },
+    {
+      "role": "Secretary",
+      "name": "Maisie Thompson",
+      "major": "Major TBA",
+      "email": "",
+      "bio": "Bio coming soon!",
+      "photo": ""
+    },
+    {
+      "role": "Events and Logistics Coordinator",
+      "name": "Amy Chung",
+      "major": "Major TBA",
+      "email": "",
+      "bio": "Bio coming soon!",
+      "photo": ""
+    },
+    {
+      "role": "Community Outreach Coordinator",
+      "name": "Fiona Scott",
+      "major": "Major TBA",
+      "email": "",
+      "bio": "Bio coming soon!",
+      "photo": ""
+    }
   ]
 }

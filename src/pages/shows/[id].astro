@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import Gallery from '../../components/Gallery.astro';
 import { getCollection, render } from 'astro:content';
 export async function getStaticPaths() {
   return (await getCollection('shows')).map((show) => ({ params: { id: show.id }, props: { show } }));
@@ -9,19 +10,26 @@ const d = show.data;
 const { Content } = await render(show);
 ---
 <Base title={d.title}>
-  {d.image && <div class="show-hero"><img src={d.image} alt={`${d.title} cast photo`} /></div>}
+  {d.image && <div class="show-hero"><img src={d.image} alt={`${d.title} production photo`} /></div>}
   <article class="wrap narrow section">
-    <p class="eyebrow">{d.season}</p>
+    <p class="eyebrow">{d.featured ? `Now playing · ${d.season}` : d.season}</p>
     <h1>{d.title}</h1>
     {d.playwright && <p class="muted byline">by {d.playwright}</p>}
-    {(d.dates || d.venue) && (
+    {(d.dates || d.venue || d.directors) && (
       <div class="details">
+        {d.directors && <p><strong>Directed by:</strong> {d.directors}</p>}
         {d.dates && <p><strong>When:</strong> {d.dates}</p>}
         {d.venue && <p><strong>Where:</strong> {d.venue}</p>}
         {d.ticket_url && d.featured && <a class="btn primary" href={d.ticket_url}>Buy tickets</a>}
       </div>
     )}
     <div class="prose"><Content /></div>
-    <p><a class="link" href="/shows">← All shows</a></p>
   </article>
+  {d.gallery && d.gallery.length > 0 && (
+    <section class="wrap section" id="photos">
+      <h2>Photos</h2>
+      <Gallery photos={d.gallery} title={d.title} />
+    </section>
+  )}
+  <p class="wrap narrow"><a class="link" href="/shows">← All shows</a></p>
 </Base>

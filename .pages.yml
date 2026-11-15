@@ -33,6 +33,9 @@ content:
       - name: playwright
         label: Written by
         type: string
+      - name: directors
+        label: Directed by
+        type: string
       - name: dates
         label: Performance dates and times
         description: 'For example "April 10th & 11th, 2026 @ 7pm"'
@@ -46,6 +49,11 @@ content:
       - name: image
         label: Photo
         type: image
+      - name: gallery
+        label: Photo gallery
+        description: Add as many photos as you like. Drag to reorder.
+        type: image
+        list: true
       - name: featured
         label: Feature on the home page as "Now playing"
         description: Turn this on for the upcoming show only, and turn it off once the run is over.
@@ -104,9 +112,18 @@ content:
           - name: name
             label: Name
             type: string
+          - name: major
+            label: Major
+            type: string
           - name: email
             label: Email (optional, shown publicly)
             type: string
+          - name: bio
+            label: Short bio
+            type: text
+          - name: photo
+            label: Headshot (optional, square works best)
+            type: image
 
   - name: settings
     label: Site settings

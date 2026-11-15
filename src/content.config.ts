@@ -8,6 +8,8 @@ const shows = defineCollection({
     season: z.string(),
     sort_date: z.coerce.date(),
     playwright: z.string().optional().nullable(),
+    directors: z.string().optional().nullable(),
+    gallery: z.array(z.string()).optional().nullable(),
     dates: z.string().optional().nullable(),
     venue: z.string().optional().nullable(),
     ticket_url: z.string().optional().nullable(),

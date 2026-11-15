@@ -1,0 +1,55 @@
+---
+// Photo grid with a click-to-enlarge viewer (arrow keys / swipe to move between photos).
+interface Props { photos: string[]; title?: string; limit?: number; moreHref?: string }
+const { photos, title = 'Photo', limit, moreHref } = Astro.props;
+const shown = limit ? photos.slice(0, limit) : photos;
+---
+<div class="gallery" data-gallery>
+  {shown.map((src, i) => (
+    <button type="button" class="gallery-item" data-index={i} data-src={src} aria-label={`Open ${title} photo ${i + 1}`}>
+      <img src={src} alt={`${title} photo ${i + 1}`} loading="lazy" decoding="async" />
+    </button>
+  ))}
+</div>
+{moreHref && limit && photos.length > limit && (
+  <p class="gallery-more"><a class="btn outline" href={moreHref}>See all {photos.length} photos</a></p>
+)}
+
+<dialog class="lightbox" data-lightbox aria-label="Photo viewer">
+  <button type="button" class="lb-close" data-close aria-label="Close">×</button>
+  <button type="button" class="lb-nav lb-prev" data-prev aria-label="Previous photo">‹</button>
+  <img data-lb-img alt="" />
+  <button type="button" class="lb-nav lb-next" data-next aria-label="Next photo">›</button>
+  <p class="lb-count" data-count></p>
+</dialog>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-gallery]').forEach((grid) => {
+    const dialog = grid.parentElement!.querySelector<HTMLDialogElement>('[data-lightbox]')!;
+    const img = dialog.querySelector<HTMLImageElement>('[data-lb-img]')!;
+    const count = dialog.querySelector<HTMLElement>('[data-count]')!;
+    const items = [...grid.querySelectorAll<HTMLElement>('.gallery-item')];
+    let i = 0;
+    const show = (n: number) => {
+      i = (n + items.length) % items.length;
+      img.src = items[i].dataset.src!;
+      img.alt = items[i].querySelector('img')!.alt;
+      count.textContent = `${i + 1} / ${items.length}`;
+    };
+    items.forEach((el, n) => el.addEventListener('click', () => { show(n); dialog.showModal(); }));
+    dialog.querySelector('[data-prev]')!.addEventListener('click', () => show(i - 1));
+    dialog.querySelector('[data-next]')!.addEventListener('click', () => show(i + 1));
+    dialog.querySelector('[data-close]')!.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(i - 1);
+      if (e.key === 'ArrowRight') show(i + 1);
+    });
+    let x0 = 0;
+    dialog.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    dialog.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 50) show(dx < 0 ? i + 1 : i - 1);
+    });
+  });
+</script>
