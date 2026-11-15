@@ -5,65 +5,89 @@
     {
       "role": "President",
       "name": "Iris Pelli-Walbert",
+      "pronouns": "",
       "major": "Major TBA",
       "email": "",
+      "favorite_show": "",
+      "fun_fact": "",
       "bio": "Bio coming soon!",
       "photo": ""
     },
     {
       "role": "Vice President",
       "name": "Logan Barker",
+      "pronouns": "",
       "major": "Major TBA",
       "email": "",
+      "favorite_show": "",
+      "fun_fact": "",
       "bio": "Bio coming soon!",
       "photo": ""
     },
     {
       "role": "Treasurer",
       "name": "Alex Upton",
+      "pronouns": "",
       "major": "Major TBA",
       "email": "",
+      "favorite_show": "",
+      "fun_fact": "",
       "bio": "Bio coming soon!",
       "photo": ""
     },
     {
       "role": "Technical Director",
       "name": "Tallulah Lintern",
+      "pronouns": "she/they",
       "major": "Major TBA",
       "email": "",
-      "bio": "Bio coming soon!",
+      "favorite_show": "Once Upon A Mattress",
+      "fun_fact": "I've traveled to 3 continents and 11 countries!",
+      "bio": "",
       "photo": ""
     },
     {
       "role": "PR Manager",
-      "name": "Jay Stephan",
+      "name": "Juliana (Jay) Stephen",
+      "pronouns": "she/her",
       "major": "Major TBA",
       "email": "",
-      "bio": "Bio coming soon!",
+      "favorite_show": "Spamalot! I loved choreographing for Camelot.",
+      "fun_fact": "I went skydiving out of Canada and back into the U.S.!",
+      "bio": "",
       "photo": ""
     },
     {
       "role": "Secretary",
       "name": "Maisie Thompson",
+      "pronouns": "she/her",
       "major": "Major TBA",
       "email": "",
-      "bio": "Bio coming soon!",
+      "favorite_show": "Sweeney Todd",
+      "fun_fact": "I do close-up magic.",
+      "bio": "",
       "photo": ""
     },
     {
       "role": "Events and Logistics Coordinator",
       "name": "Amy Chung",
+      "pronouns": "she/her/any",
       "major": "Major TBA",
       "email": "",
-      "bio": "Bio coming soon!",
+      "favorite_show": "The Lightning Thief",
+      "fun_fact": "I've drowned probably too many times...",
+      "bio": "",
       "photo": ""
     },
     {
       "role": "Community Outreach Coordinator",
       "name": "Fiona Scott",
+      "pronouns": "she/her",
       "major": "Major TBA",
       "email": "",
-      "bio": "Bio coming soon!",
+      "favorite_show": "Holes",
+      "fun_fact": "I spent time with a camel growing up!",
+      "bio": "",
       "photo": ""
     }
   ]

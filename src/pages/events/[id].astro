@@ -11,7 +11,6 @@ const { Content } = await render(event);
 const mapUrl = d.location ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(d.location + ', Burlington, VT')}` : null;
 ---
 <Base title={d.title} description={d.summary ?? undefined}>
-  {d.image && <div class="show-hero"><img src={d.image} alt="" /></div>}
   <article class="wrap narrow section">
     {d.type && <p class="eyebrow">{d.type}</p>}
     <h1>{d.title}</h1>
@@ -25,6 +24,7 @@ const mapUrl = d.location ? `https://www.google.com/maps/search/?api=1&query=${e
     </div>
     {d.summary && <p class="lead">{d.summary}</p>}
     <div class="prose"><Content /></div>
+    {d.image && <img class="poster" src={d.image} alt={`${d.title} poster`} />}
     <p><a class="link" href="/events">← All events</a></p>
   </article>
 </Base>

@@ -69,10 +69,16 @@ const path = Astro.url.pathname.replace(/\/$/, '');
     </div>
   </footer>
   <script>
-    // Hide events that have already ended (the site is only rebuilt when someone edits it).
+    // Move events that have ended into "Past events" (or drop them from home-page lists),
+    // so the site stays correct between rebuilds. Times are compared in Vermont time.
     const now = new Date().toLocaleString('sv-SE', { timeZone: 'America/New_York' }).slice(0, 16).replace(' ', 'T');
-    document.querySelectorAll<HTMLElement>('[data-ends]').forEach((el) => { if (el.dataset.ends! < now) el.remove(); });
+    const pastList = document.querySelector<HTMLElement>('[data-past-list]');
     document.querySelectorAll<HTMLElement>('[data-upcoming-list]').forEach((list) => {
+      [...list.querySelectorAll<HTMLElement>('[data-ends]')].forEach((el) => {
+        if (el.dataset.ends! >= now) return;
+        if (pastList) { pastList.prepend(el); pastList.closest<HTMLElement>('[data-past-section]')!.hidden = false; }
+        else el.remove();
+      });
       if (!list.children.length) {
         list.closest('[data-upcoming-section]')?.remove();
         document.querySelectorAll<HTMLElement>('[data-empty-note]').forEach((n) => (n.hidden = false));

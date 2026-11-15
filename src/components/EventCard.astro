@@ -12,4 +12,5 @@ const b = badge(d.start);
     <p class="muted event-meta">{fmtWhen(d.start, d.end)}{d.location && ` · ${d.location}`}</p>
     {d.summary && <p class="event-summary">{d.summary}</p>}
   </div>
+  {d.image && <img class="event-thumb" src={d.image} alt="" loading="lazy" />}
 </a>

@@ -80,7 +80,7 @@ h3 { font-size: 1.25rem; }
 
 /* Now playing */
 .now-playing { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
-.now-playing img { border-radius: 8px; aspect-ratio: 3/2; object-fit: cover; width: 100%; }
+.now-playing > img { border-radius: 8px; aspect-ratio: 3/2; object-fit: contain; width: 100%; background: var(--stage); }
 .now-playing-placeholder { aspect-ratio: 3/2; display: grid; place-items: center; border-radius: 8px; background: radial-gradient(circle at 50% 40%, #3a1013, var(--stage) 70%); }
 .now-playing .now-playing-placeholder img { width: 40%; aspect-ratio: 1; background: #fff; border-radius: 50%; padding: 2px; }
 @media (max-width: 760px) { .now-playing { grid-template-columns: 1fr; gap: 20px; padding: 20px; } }
@@ -109,7 +109,7 @@ h3 { font-size: 1.25rem; }
 /* Page heads & prose */
 .page-head { padding-top: 56px; padding-bottom: 8px; }
 .show-hero { background: var(--stage); }
-.show-hero img { width: 100%; max-height: 70vh; object-fit: cover; margin: 0 auto; max-width: 1400px; }
+.show-hero img { width: 100%; max-height: 70vh; object-fit: contain; margin: 0 auto; max-width: 1400px; }
 .byline { font-style: italic; margin-top: -.3em; }
 .details { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--red); border-radius: 8px; padding: 16px 20px; margin: 24px 0; }
 .details p { margin: 0 0 .3rem; }
@@ -199,3 +199,11 @@ h3 { font-size: 1.25rem; }
 .credits dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 0; }
 .credits dt { color: var(--muted); }
 .credits dd { margin: 0; font-weight: 600; }
+
+.event-card { align-items: center; }
+.event-body { flex: 1; min-width: 0; }
+.event-thumb { width: 96px; height: 120px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+.event-list.past .event-card { opacity: .75; }
+.event-list.past .event-date span { background: var(--muted); }
+.poster { max-width: 460px; width: 100%; border-radius: var(--radius); margin: 24px 0; box-shadow: 0 12px 30px rgba(20,18,16,.15); }
+@media (max-width: 560px) { .event-thumb { display: none; } }

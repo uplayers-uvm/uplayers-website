@@ -214,14 +214,23 @@ content:
           - name: name
             label: Name
             type: string
+          - name: pronouns
+            label: Pronouns
+            type: string
           - name: major
             label: Major
             type: string
           - name: email
             label: Email (optional, shown publicly)
             type: string
+          - name: favorite_show
+            label: Favorite past show
+            type: string
+          - name: fun_fact
+            label: Fun fact
+            type: string
           - name: bio
-            label: Short bio
+            label: Short bio (optional)
             type: text
           - name: photo
             label: Headshot (optional, square works best)

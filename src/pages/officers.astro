@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import data from '../data/officers.json';
-const initials = (name: string) => name.split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase();
+const initials = (name: string) => { const w = name.replace(/\(.*?\)/g, ' ').split(/\s+/).filter((x) => /^[A-Za-z]/.test(x)); return ((w[0]?.[0] ?? '') + (w.length > 1 ? w[w.length - 1][0] : '')).toUpperCase(); };
 ---
 <Base title="Officers">
   <section class="page-head wrap">
@@ -19,7 +19,9 @@ const initials = (name: string) => name.split(/\s+/).map((w) => w[0]).slice(0, 2
           <div>
             <p class="eyebrow">{o.role}</p>
             <p class="officer-name">{o.name}</p>
-            {o.major && <p class="officer-major">{o.major}</p>}
+            {(o.pronouns || o.major) && <p class="officer-major">{[o.pronouns, o.major].filter(Boolean).join(' · ')}</p>}
+            {o.favorite_show && <p class="officer-bio"><strong>Favorite past show:</strong> {o.favorite_show}</p>}
+            {o.fun_fact && <p class="officer-bio"><strong>Fun fact:</strong> {o.fun_fact}</p>}
             {o.bio && <p class="officer-bio">{o.bio}</p>}
             {o.email && <a href={`mailto:${o.email}`}>{o.email}</a>}
           </div>
