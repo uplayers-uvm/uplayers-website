@@ -6,89 +6,64 @@
       "role": "President",
       "name": "Iris Pelli-Walbert",
       "pronouns": "she/they/any",
-      "major": "",
-      "email": "",
-      "favorite_show": "Can't decide! Either Fef and Her Friends or Renew",
+      "favorite_show": "Can't decide! Either Fefu and Her Friends or Renew",
       "fun_fact": "I'm really good at untying knots.",
-      "bio": "",
       "photo": "/images/officers/iris-pelli-walbert.jpg"
     },
     {
       "role": "Vice President",
       "name": "Logan Barker",
       "pronouns": "she/her",
-      "major": "",
-      "email": "",
       "favorite_show": "Mamma Mia",
       "fun_fact": "I have the same birthday as Harry Styles.",
-      "bio": "",
       "photo": "/images/officers/logan-barker.jpg"
     },
     {
       "role": "Treasurer",
       "name": "Alex Upton",
       "pronouns": "he/him",
-      "major": "",
-      "email": "",
       "favorite_show": "Mamma Mia",
       "fun_fact": "When I visualize numbers, there's a color associated with them.",
-      "bio": "",
       "photo": "/images/officers/alex-upton.jpg"
     },
     {
       "role": "Technical Director",
       "name": "Tallulah Lintern",
       "pronouns": "she/they",
-      "major": "",
-      "email": "",
       "favorite_show": "Once Upon A Mattress",
       "fun_fact": "I've traveled to 3 continents and 11 countries!",
-      "bio": "",
       "photo": "/images/officers/tallulah-lintern.jpg"
     },
     {
       "role": "PR Manager",
       "name": "Juliana (Jay) Stephen",
       "pronouns": "she/her",
-      "major": "",
-      "email": "",
       "favorite_show": "Spamalot! I loved choreographing for Camelot.",
       "fun_fact": "I went skydiving out of Canada and back into the U.S.!",
-      "bio": "",
       "photo": "/images/officers/jay-stephen.jpg"
     },
     {
       "role": "Secretary",
       "name": "Maisie Thompson",
       "pronouns": "she/her",
-      "major": "",
-      "email": "",
       "favorite_show": "Sweeney Todd",
       "fun_fact": "I do close-up magic.",
-      "bio": "",
       "photo": "/images/officers/maisie-thompson.jpg"
     },
     {
       "role": "Events and Logistics Coordinator",
       "name": "Amy Chung",
       "pronouns": "she/her/any",
-      "major": "",
-      "email": "",
       "favorite_show": "The Lightning Thief",
       "fun_fact": "I've drowned probably too many times...",
-      "bio": "",
       "photo": "/images/officers/amy-chung.jpg"
     },
     {
       "role": "Community Outreach Coordinator",
       "name": "Fiona Scott",
       "pronouns": "she/her",
-      "major": "",
-      "email": "",
       "favorite_show": "Holes",
-      "fun_fact": "I spent time with a camel growing up!",
-      "bio": "",
-      "photo": ""
+      "fun_fact": "I spent time with a camel growing up!"
     }
   ],
   "past_boards": [
