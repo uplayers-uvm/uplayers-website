@@ -312,6 +312,9 @@ content:
         label: Mailing list signup link
         description: e.g. a Google Form. Leave blank to make the button open an email to the club address instead.
         type: string
+      - name: suggestion_box_url
+        label: Suggestion box link
+        type: string
       - name: lynx_url
         label: Lynx link
         type: string

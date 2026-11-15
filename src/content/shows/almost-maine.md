@@ -6,7 +6,7 @@ playwright: John Cariani
 directors: Anna Blackburn & Zeke Lorenzo
 dates: "Dec. 3rd & 4th @ 7pm; Dec. 5th @ 2pm & 7pm, 2026"
 venue: First Congregational Church, 38 S Winooski Ave, Burlington
-ticket_url: https://www.instagram.com/university_players/
+ticket_url: "https://na.eventscloud.com/ereg/index.php?eventid=899844&"
 image: /images/events/almost-maine-poster.jpg
 featured: true
 gallery: []

@@ -5,7 +5,7 @@
   "intro": "The University Players is UVM's student-run theatre club. From writing and directing to tech and acting, we are self-sufficient and eager to bring the performing arts to anyone who displays an interest. With two main stage performances a season and various other campus events, there are plenty of ways to get involved. We look forward to working with you!",
   "hero_image": "/images/fav-uplayers-photo.jpg",
   "email": "uplayers@uvm.edu",
-  "mailing_list_url": "",
+  "mailing_list_url": "https://docs.google.com/forms/d/e/1FAIpQLSf0KYCKDK9VAckvRs797Y6IVeX4GEtFB_Er_xnkA8mWcHwTTQ/viewform",
   "lynx_url": "https://thelynx.campuslabs.com/engage/organizations?categories=3435",
   "instagram": "https://www.instagram.com/university_players/",
   "facebook": "https://www.facebook.com/UniversityPlayersUVM/",
@@ -14,5 +14,6 @@
     "enabled": false,
     "text": "Auditions for our spring show are open! Sign up now",
     "link": "/events"
-  }
+  },
+  "suggestion_box_url": "https://docs.google.com/forms/d/e/1FAIpQLSdz_NAgxLVE-pH3ZDL9YhIxp8vjRvT2xLta6id6dXROnOZC3A/viewform?usp=sf_link"
 }

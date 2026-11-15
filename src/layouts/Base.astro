@@ -62,6 +62,8 @@ const path = Astro.url.pathname.replace(/\/$/, '');
       </div>
       <div class="footer-links">
         <a href={`mailto:${site.email}`}>{site.email}</a>
+        {site.mailing_list_url && <a href={site.mailing_list_url}>Mailing list</a>}
+        {(site as any).suggestion_box_url && <a href={(site as any).suggestion_box_url}>Suggestion box</a>}
         {site.instagram && <a href={site.instagram}>Instagram</a>}
         {site.facebook && <a href={site.facebook}>Facebook</a>}
         {site.youtube && <a href={site.youtube}>YouTube</a>}
