@@ -63,10 +63,48 @@
       "name": "Fiona Scott",
       "pronouns": "she/her",
       "favorite_show": "Holes",
-      "fun_fact": "I spent time with a camel growing up!"
+      "fun_fact": "I spent time with a camel growing up!",
+      "photo": "/images/IMG_6051-1.jpg"
     }
   ],
   "past_boards": [
+    {
+      "year": "2025-2026",
+      "members": [
+        {
+          "role": "President",
+          "name": "Chloë Post"
+        },
+        {
+          "role": "Vice President",
+          "name": "Janna Galligan"
+        },
+        {
+          "role": "Treasurer",
+          "name": "Keelin Tidmarsh"
+        },
+        {
+          "role": "PR Manager",
+          "name": "Gracie Cunningham"
+        },
+        {
+          "role": "Technical Director",
+          "name": "Tallulah Lintern"
+        },
+        {
+          "role": "Events Coordinator",
+          "name": "Aaron Soloman"
+        },
+        {
+          "role": "Secretary",
+          "name": "Logan Barker"
+        },
+        {
+          "role": "Officer In Training",
+          "name": "Iris Pelli-Walbert"
+        }
+      ]
+    },
     {
       "year": "2024–2025",
       "members": [
