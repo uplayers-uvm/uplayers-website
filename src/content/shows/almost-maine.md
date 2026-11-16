@@ -2,40 +2,40 @@
 title: Almost, Maine
 season: Fall 2026
 sort_date: 2026-12-03
+featured: true
 playwright: John Cariani
 directors: Anna Blackburn & Zeke Lorenzo
-dates: "Dec. 3rd & 4th @ 7pm; Dec. 5th @ 2pm & 7pm, 2026"
+dates: Dec. 3rd & 4th @ 7pm; Dec. 5th @ 2pm & 7pm, 2026
 venue: First Congregational Church, 38 S Winooski Ave, Burlington
-ticket_url: "https://na.eventscloud.com/ereg/index.php?eventid=899844&"
-image: /images/events/almost-maine-poster.jpg
-featured: true
-gallery: []
+ticket_url: https://na.eventscloud.com/ereg/index.php?eventid=899844&
+image: /images/Ticket Link Almost, Maine Poster (1).jpg
 cast:
-  - role: "Pete / Daniel / Dave"
-    name: "John Mcgoff"
-  - role: "Ginette / Marvalyn"
-    name: "Mika Hansen"
-  - role: "East / Steve / Chad"
-    name: "Hugh Wendling"
-  - role: "Glory / Gayle"
-    name: "Morgan Weatherbee"
-  - role: "Jimmy / Randy / Phil"
-    name: "Jack Poppleton"
-  - role: "Sandrine / Hope"
-    name: "Jess Burke"
-  - role: "Waitress / Rhonda"
-    name: "Scarlett Gitterman"
-  - role: "Lendall / Marci"
-    name: "Iris Pelli-Walbert"
+  - role: Pete / Daniel / Dave
+    name: John Mcgoff
+  - role: Ginette / Marvalyn
+    name: Mika Hansen
+  - role: East / Steve / Chad
+    name: Hugh Wendling
+  - role: Glory / Gayle
+    name: Morgan Weatherbee
+  - role: Jimmy / Randy / Phil
+    name: Jack Poppleton
+  - role: Sandrine / Hope
+    name: Jess Burke
+  - role: Waitress / Rhonda
+    name: Scarlett Gitterman
+  - role: Lendall / Marci
+    name: Iris Pelli-Walbert
 crew:
-  - role: "Directors"
-    name: "Anna Blackburn & Zeke Lorenzo"
-  - role: "Assistant Director"
-    name: "Shelby Fader"
-  - role: "Stage Manager"
-    name: "Noah Marston"
-  - role: "Assistant Stage Managers"
-    name: "Belle Breychak & Sadie Manley"
+  - role: Directors
+    name: Anna Blackburn & Zeke Lorenzo
+  - role: Assistant Director
+    name: Shelby Fader
+  - role: Stage Manager
+    name: Noah Marston
+  - role: Assistant Stage Managers
+    name: Belle Breychak & Sadie Manley
+draft: false
 ---
 *Almost, Maine* is a collection of 11 vignettes that show the struggles of everyday love and life. The people of Almost, an unorganized territory tucked away in Northern Maine, show the unmagical 'magic' of everyday, small-town interactions.
 
