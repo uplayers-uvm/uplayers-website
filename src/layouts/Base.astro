@@ -52,9 +52,9 @@ const uvm = import.meta.env.PUBLIC_THEME === 'uvm';
         <img src="/images/logo.png" alt="" width="44" height="44" />
         <span>University Players</span>
       </a>
-      <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Open menu" />
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Open menu" aria-controls="main-nav" />
       <label for="menu-toggle" class="menu-button" aria-hidden="true"><span></span></label>
-      <nav aria-label="Main">
+      <nav id="main-nav" aria-label="Main">
         {menu.map((m) => <a href={m.href} aria-current={path === m.href ? 'page' : undefined}>{m.label}</a>)}
       </nav>
     </div>
