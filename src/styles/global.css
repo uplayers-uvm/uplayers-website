@@ -219,3 +219,47 @@ h3 { font-size: 1.25rem; }
 .event-list.past .event-summary, .event-list.past .event-thumb { display: none; }
 .event-list.past .event-body h3 { font-size: 1.05rem; }
 .show-card-img > img { object-position: center top; }
+
+/* ---------- Accessibility helpers (both themes) ---------- */
+.skip-link { position: absolute; left: -9999px; top: 8px; z-index: 100; background: #fff; color: #000; padding: 10px 16px; border-radius: 6px; font-weight: 600; }
+.skip-link:focus { left: 8px; }
+a:focus-visible, button:focus-visible, .btn:focus-visible, label:focus-visible { outline: 3px solid var(--focus, #c9a24a); outline-offset: 2px; }
+
+/* ---------- UVM theme (built with PUBLIC_THEME=uvm) ----------
+   Follows the UVM brand guide: Catamount Green #154734 + Gold #FFD100 as dominant colors,
+   Vermont Slate #00313C and Morning Fog #F7F7F7 as secondary, Lora headlines + Roboto body.
+   Contrast: green on white / white on green / gold on green all meet WCAG AA. Gold is never used as text on light backgrounds. */
+.theme-uvm {
+  --ink: #1b1b1b; --stage: #154734; --paper: #f7f7f7; --card: #ffffff; --muted: #4a5a55; --line: #dfe5e2;
+  --red: #154734; --red-dark: #0e3326; --gold: #ffd100; --focus: #489fdf;
+  --serif: 'Lora', Georgia, serif; --sans: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+.theme-uvm body { font-size: 17px; }
+.theme-uvm h1, .theme-uvm h2, .theme-uvm h3 { letter-spacing: 0; }
+.theme-uvm .site-header { background: #154734; border-bottom: 4px solid #ffd100; }
+.theme-uvm .site-header nav a:hover, .theme-uvm .site-header nav a[aria-current] { border-color: #ffd100; }
+.theme-uvm .hero { background: #154734; }
+.theme-uvm .hero-sub { color: #e8efe9; }
+.theme-uvm .hero-photo img { box-shadow: 0 24px 60px rgba(0,0,0,.35), 0 0 0 4px #ffd100; }
+.theme-uvm .btn.primary { background: #ffd100; color: #154734; }
+.theme-uvm .btn.primary:hover { background: #ffe066; }
+.theme-uvm .details .btn.primary, .theme-uvm .now-playing .btn.primary, .theme-uvm .band .btn.primary { background: #154734; color: #fff; }
+.theme-uvm .band .btn.primary { background: #ffd100; color: #154734; }
+.theme-uvm .eyebrow { color: #154734; }
+.theme-uvm .eyebrow.light { color: #ffd100; }
+.theme-uvm a { color: #154734; }
+.theme-uvm .site-header a, .theme-uvm .site-footer a, .theme-uvm .hero a.btn, .theme-uvm .band a.btn { color: inherit; }
+.theme-uvm .btn.ghost { color: #fff; }
+.theme-uvm .placeholder, .theme-uvm .now-playing-placeholder { background: radial-gradient(circle at 50% 40%, #1f6b4f, #154734 70%); }
+.theme-uvm .band { background: #00313c; }
+.theme-uvm .site-footer { background: #154734; color: #e8efe9; border-top: 4px solid #ffd100; }
+.theme-uvm .footer-links a:hover { color: #ffd100; }
+.theme-uvm .officer-initials { background: #154734; color: #ffd100; }
+.theme-uvm .details { border-left-color: #ffd100; }
+.theme-uvm .announcement { background: #ffd100; color: #154734; }
+.theme-uvm .announcement a { color: #154734; }
+.theme-uvm .event-date span { background: #154734; }
+.theme-uvm .uvm-footer { border-top: 1px solid rgba(255,255,255,.2); padding-top: 16px; padding-bottom: 28px; font-size: .88rem; color: #d7e3dc; }
+.theme-uvm .uvm-footer p { margin: 0 0 6px; }
+.theme-uvm .uvm-footer a { color: #ffd100; }
+.theme-uvm .hero a.btn.primary, .theme-uvm .band a.btn.primary { color: #154734; }
