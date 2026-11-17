@@ -34,7 +34,7 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ]; then echo "::warning::CLOUDFLARE_API_TOKEN secret is not set yet; skipping publish."; exit 0; fi
-          npx -y wrangler@4 pages deploy dist --project-name "$CLOUDFLARE_PROJECT" --branch main --commit-hash "$GITHUB_SHA" --commit-message "$(git log -1 --pretty=%s | head -c 300)"
+          npx wrangler pages deploy dist --project-name "$CLOUDFLARE_PROJECT" --branch main --commit-hash "$GITHUB_SHA" --commit-message "$(git log -1 --pretty=%s | head -c 300)"
       - name: Build UVM-branded version
         run: PUBLIC_THEME=uvm npm run build
       - name: Publish UVM-branded version (unlisted preview at uvm.uplayers.pages.dev)
@@ -42,4 +42,4 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ]; then exit 0; fi
-          npx -y wrangler@4 pages deploy dist --project-name "$CLOUDFLARE_PROJECT" --branch uvm --commit-hash "$GITHUB_SHA" --commit-message "UVM theme: $(git log -1 --pretty=%s | head -c 280)"
+          npx wrangler pages deploy dist --project-name "$CLOUDFLARE_PROJECT" --branch uvm --commit-hash "$GITHUB_SHA" --commit-message "UVM theme: $(git log -1 --pretty=%s | head -c 280)"
